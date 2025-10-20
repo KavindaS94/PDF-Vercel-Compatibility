@@ -1,14 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
+import chromium from '@sparticuz/chromium';
+import puppeteer from 'puppeteer-core';
 
 export async function POST(request: NextRequest) {
   try {
     const { content, title, logo, images } = await request.json();
 
-    // Launch Puppeteer
+    // Launch Chromium (works on Vercel / serverless)
+    const isRunningOnVercel = !!process.env.VERCEL;
+    const executablePath = isRunningOnVercel
+      ? await chromium.executablePath()
+      : undefined; // Use system Chrome/Chromium locally
+
     const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: chromium.args,
+      headless: chromium.headless,
+      executablePath,
     });
 
     const page = await browser.newPage();

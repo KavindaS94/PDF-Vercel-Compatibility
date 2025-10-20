@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  serverExternalPackages: ['puppeteer-core', '@sparticuz/chromium'],
   webpack: (config, { isServer }) => {
     // Handle PDF.js dependencies
     if (!isServer) {

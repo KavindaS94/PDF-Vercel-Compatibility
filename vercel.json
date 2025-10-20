@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd apps/pdf-viewer && npm run build",
+  "outputDirectory": "apps/pdf-viewer/.next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "functions": {
+    "apps/pdf-viewer/src/app/api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
