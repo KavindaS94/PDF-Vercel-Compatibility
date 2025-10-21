@@ -6,7 +6,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  serverExternalPackages: ['puppeteer-core', '@sparticuz/chromium'],
   webpack: (config, { isServer }) => {
     // Handle PDF.js dependencies
     if (!isServer) {
