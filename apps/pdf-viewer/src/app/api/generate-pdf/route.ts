@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'nodejs';
+export const preferredRegion = 'auto';
 import { renderToBuffer } from '@react-pdf/renderer';
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';

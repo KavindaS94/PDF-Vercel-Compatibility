@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd apps/pdf-viewer && npm run build",
+  "buildCommand": "npm --workspace apps/pdf-viewer run build",
   "outputDirectory": "apps/pdf-viewer/.next",
   "installCommand": "npm install",
   "framework": "nextjs",
